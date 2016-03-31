@@ -26,6 +26,9 @@ public class CaesarInt implements Encryptable {
 					if (j + encryptKey > 25) {
 						returnMessage += alphabetArray[(j + encryptKey) - 25];
 					}
+					else if (j + encryptKey < 0) {
+						returnMessage += alphabetArray[(j + encryptKey) + 25];
+					}
 					else {
 						returnMessage += alphabetArray[j + encryptKey];
 					}
@@ -54,6 +57,9 @@ public class CaesarInt implements Encryptable {
 				if (message.substring(i, i+1).equals(alphabetArray[j])) {
 					if (j - encryptKey < 0) {
 						returnMessage += alphabetArray[(j + 25) - encryptKey];
+					}
+					else if (j - encryptKey >= 25) {
+						returnMessage += alphabetArray[(j - encryptKey) - 25];
 					}
 					else {
 						returnMessage += alphabetArray[j - encryptKey];
